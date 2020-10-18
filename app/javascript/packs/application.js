@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -28,7 +27,17 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
+const target1 = document.querySelector(".img-1")
+const target2 = document.querySelector(".img-3")
+
+window.addEventListener('scroll', function (e) {
+
+  var scrolled = window.pageYOffset;
+  var rate1 = scrolled * 0.3;
+  var rate2 = scrolled * -0.1;
+
+  target1.style.transform = 'translate3d(0px, '+rate1+'px, 0px)';
+  target2.style.transform = 'translate3d(0px, '+rate2+'px, 0px)';
+
+
+})
